@@ -1,18 +1,26 @@
 import Vue from "vue";
 import Router from "vue-router";
-// import Home from "./views/Home.vue";
 import LoginPage from "./views/LoginPage.vue";
+import ProfileListPage from "./views/ProfileListPage.vue";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      name: "login-page",
+      path: "/login",
+      name: "login",
       component: LoginPage
+    },
+    {
+      path: "/",
+      name: "profile-list",
+      component: ProfileListPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/about",
@@ -25,3 +33,13 @@ export default new Router({
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  console.log(to.matched);
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    next({ name: "login" });
+  }
+  return next();
+});
+
+export default router;

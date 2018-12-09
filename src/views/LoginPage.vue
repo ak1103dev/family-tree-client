@@ -30,7 +30,7 @@ export default {
   methods: {
     onSubmit() {
       console.log("submit!");
-      this.$router.push({ name: "about" });
+      this.$router.push({ name: "profile-list" });
     }
   }
 };
