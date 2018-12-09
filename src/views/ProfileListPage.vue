@@ -1,6 +1,15 @@
 <template>
   <div>
-    <h1>List</h1>
+    <el-row>
+      <el-col :span="12"><h1>List</h1></el-col>
+      <el-col :span="12">
+        <div style="float: right; padding: 3px 0">
+          <el-button type="primary" icon="el-icon-plus" @click="createProfile">
+            New Profile
+          </el-button>
+        </div>
+      </el-col>
+    </el-row>
     <el-row>
       <el-col v-for="gen in list" :key="gen.generation" :span="24">
         <h2>Generation {{ gen.generation }}</h2>
@@ -74,6 +83,9 @@ export default {
   methods: {
     seeProfile() {
       this.$router.push({ name: "profile", params: { id: "123" } });
+    },
+    createProfile() {
+      this.$router.push({ name: "create-profile" });
     }
   }
 };

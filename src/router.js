@@ -3,6 +3,8 @@ import Router from "vue-router";
 import LoginPage from "./views/LoginPage.vue";
 import ProfileListPage from "./views/ProfileListPage.vue";
 import ProfilePage from "./views/ProfilePage";
+import CreateProfilePage from "./views/CreateProfilePage";
+import EditProfilePage from "./views/EditProfilePage";
 
 Vue.use(Router);
 
@@ -24,9 +26,25 @@ const router = new Router({
       }
     },
     {
+      path: "/profile/new",
+      name: "create-profile",
+      component: CreateProfilePage
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
       path: "/profile/:id",
       name: "profile",
       component: ProfilePage
+      // meta: {
+      //   requiresAuth: true
+      // }
+    },
+    {
+      path: "/profile/:id/edit",
+      name: "edit-profile",
+      component: EditProfilePage
       // meta: {
       //   requiresAuth: true
       // }

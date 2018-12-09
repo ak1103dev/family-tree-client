@@ -7,6 +7,7 @@
             style="float: right; padding: 3px 0"
             type="text"
             icon="el-icon-edit"
+            @click="editProfile"
           >
             Edit
           </el-button>
@@ -112,6 +113,11 @@ export default {
   },
   mounted() {
     console.log("mounted");
+  },
+  methods: {
+    editProfile() {
+      this.$router.push({ name: "edit-profile" });
+    }
   }
 };
 </script>
