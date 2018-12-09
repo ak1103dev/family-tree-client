@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import LoginPage from "./views/LoginPage.vue";
 import ProfileListPage from "./views/ProfileListPage.vue";
+import ProfilePage from "./views/ProfilePage";
 
 Vue.use(Router);
 
@@ -21,6 +22,14 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/profile/:id",
+      name: "profile",
+      component: ProfilePage
+      // meta: {
+      //   requiresAuth: true
+      // }
     },
     {
       path: "/about",

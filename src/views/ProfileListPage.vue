@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     seeProfile() {
-      this.$router.push({ name: "about" });
+      this.$router.push({ name: "profile", params: { id: "123" } });
     }
   }
 };
